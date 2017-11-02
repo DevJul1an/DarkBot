@@ -1,5 +1,7 @@
 # DarkBot
 
+## Currently maintained by me, DevJul1an
+
   This project is an attempt at a better rewrite of the Minecraft client for use in automating Minecraft that I started around early July of last year. This isn't limited to simply botting; other uses include (completely) custom clients, server monitors, and more. Multi-protocol support was recently added, allowing the same version of the bot to run on different Minecraft versions (assuming that the corresponding protocol version provider is in the protocols/ directory).
 
 [An example task that loads WorldEdit schematic files and constructs them](http://www.youtube.com/watch?v=mahhJ6zK2BU) (written by someone else who has since lost the source)
