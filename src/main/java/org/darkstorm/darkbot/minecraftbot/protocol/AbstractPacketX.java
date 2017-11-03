@@ -39,8 +39,14 @@ public abstract class AbstractPacketX implements PacketX {
 	}
 
 	public static String readString(DataInputStream in) throws IOException {
+		System.out.println(in==null);
+
 		System.out.println("GETTING LENGTH...");
 		int length = readVarInt(in);
+
+		if(length > Short.MAX_VALUE) {
+			throw new IOException("UNREADABLE PACKET RECEIVED!!!!");
+		}
 		System.out.println("LENGTH=" + length);
 		System.out.println("GETTING BYTES...");
 		byte[] data = new byte[length];
@@ -48,7 +54,7 @@ public abstract class AbstractPacketX implements PacketX {
 		System.out.println("READING BYTES...");
 		in.readFully(data);
 		System.out.println("BYTES=" + data);
-		return new String(data);
+		return new String(data, UTF8);
 	}
 
 	public static void writeString(String string, DataOutputStream out) throws IOException {
