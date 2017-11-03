@@ -39,10 +39,16 @@ public abstract class AbstractPacketX implements PacketX {
 	}
 
 	public static String readString(DataInputStream in) throws IOException {
+		System.out.println("GETTING LENGTH...");
 		int length = readVarInt(in);
+		System.out.println("LENGTH=" + length);
+		System.out.println("GETTING BYTES...");
 		byte[] data = new byte[length];
+		System.out.println("BYTES=" + data);
+		System.out.println("READING BYTES...");
 		in.readFully(data);
-		return new String(data, UTF8);
+		System.out.println("BYTES=" + data);
+		return new String(data);
 	}
 
 	public static void writeString(String string, DataOutputStream out) throws IOException {
